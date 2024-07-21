@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Eric Wachaga Portfolio</title>
+    <link rel="Stylesheet" href="styles.css">
+
+    <script src="https://kit.fontawesome.com/431fef1697.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/Wachaga.png" class="logo">
+            <ul>
+                <li > <a href="#">Home</a></li>
+                <li > <a href="#">About</a></li>
+                <li > <a href="#">Services</a></li>
+                <li > <a href="#">Portfolio</a></li>
+                <li > <a href="#">Contacts</a></li>
+            </ul>
+
+        </nav>
+        <div class="header-text">
+            <p> Software Developer and Data Analyst</p>
+            <h1>Hello, I'm <span>Wachaga</span> <br>
+                a techie from <span>Kenya</span></h1>
+        </div>
+    </div>
+    </div>
+    <!-----about Section----->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images\user.png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                         Ad minima molestiae nulla. Ipsum velit perspiciatis impedit dolorum est. 
+                        Minima esse saepe asperiores illo consequuntur quidem voluptatibus inventore
+                         unde! Corporis, laborum.
+                    </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')"> Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')"> Experience</p>
+                        <p class="tab-links" onclick="opentab('education')"> Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI/UX</span><br>Designing WebApp Interfaces</li>
+                            <li><span>Web Development</span><br>Developing interactive Websites</li>
+                            <li><span>App Development</span><br>Building Android/IOS Applications</li>
+                            <li><span>Cyber Security</span><br>Building Android/IOS Applications</li>
+                            <li><span>Data Science</span><br>Building Android/IOS Applications</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2022-Current</span><br>Freelance Software Developer</li>
+                            <li><span>2023-2024 S3 Education Consultants</span><br>Digital Marketing Executive and Analsyt</li>
+                            <li><span>2020-2022 Hela Capitals Ltd</span><br>Digital Marketer</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2024-2024</span><br>The Open University of Kenya</li>
+                            <li><span>2014-2018</span><br>Kenyatta University</li>
+                            <li><span>2009-2013</span><br>Kahuho Uhuru High School</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------Services-------->
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>UI/UX Design</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Quaerat repellat ea atque laudantium recusandae a aut tempora cumque,
+                         est omnis soluta unde libero corrupti, cupiditate ipsam maiores 
+                         modi iste ab.</p>
+                    <a href="">Learn More</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-app-store-ios"></i>
+                    <h2>Web/App Development</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Quaerat repellat ea atque laudantium recusandae a aut tempora cumque,
+                         est omnis soluta unde libero corrupti, cupiditate ipsam maiores 
+                         modi iste ab.</p>
+                    <a href="">Learn More</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-database"></i>
+                    <h2>Data Science</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Quaerat repellat ea atque laudantium recusandae a aut tempora cumque,
+                         est omnis soluta unde libero corrupti, cupiditate ipsam maiores 
+                         modi iste ab.</p>
+                    <a href="">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var tablinks= document.getElementsByClassName("tab-links");
+        var tabcontents= document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for (tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+</body>
+</html>
