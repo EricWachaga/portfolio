@@ -16,19 +16,20 @@
     <div class="container">
         <nav>
             <img src="images/Wachaga.png" class="logo">
-            <ul>
-                <li > <a href="#">Home</a></li>
-                <li > <a href="#">About</a></li>
-                <li > <a href="#">Services</a></li>
-                <li > <a href="#">Portfolio</a></li>
-                <li > <a href="#">Contacts</a></li>
+            <ul id="side-menu">
+                <li > <a href="#header">Home</a></li>
+                <li > <a href="#about">About</a></li>
+                <li > <a href="#services">Services</a></li>
+                <li > <a href="#portfolio">Portfolio</a></li>
+                <li > <a href="#contact">Contacts</a></li>
+                <i class="fa-solid fa-x" onclick="closemenu()"></i>
             </ul>
-
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
             <p> Software Developer and Data Analyst</p>
-            <h1>Hello, I'm <span>Wachaga</span> <br>
-                a techie from <span>Kenya</span></h1>
+            <h1>Hello, <span> I'm Wachaga <br>
+                a techie  from Kenya</span></h1>
         </div>
     </div>
     </div>
@@ -153,7 +154,7 @@
                 </div>
             </div>
         </div>
-        <a href="#" class="btn">See more</a>
+        <a href="#portfolio" class="btn">See more</a>
     </div>
 
     <!-----------Contacts---------- -->
@@ -173,21 +174,23 @@
                     <a href="images\ERIC WACHAGA C.V.pdf" class="btn btn2">Download Cv</a>
                 </div>
                 <div class="contact-right">
-                    <form action="">
+                    <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Your Name" required>
                         <input type="email" name="Email" placeholder="Your Email" require>
                         <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                         <button type="submit" class="btn btn2">Submit</button>
                     </form>
+                    <span id="msg"></span>
                 </div>
             </div>
         </div>
-        <div class="copyright">
-            <p>copyright @wachagaeric 2024</p>
-        </div>
+
     </div>
-
-
+</div>
+<div>
+<div class="copyright">
+    <p>Copyright @wachaga 2020.</p>
+</div>
 </div>
     <script>
         var tablinks= document.getElementsByClassName("tab-links");
@@ -202,7 +205,36 @@
             event.currentTarget.classList.add("active-link");
             document.getElementById(tabname).classList.add("active-tab");
         }
+        /*--------------Sidemenu-------------*/
+        var sidemenu=document.getElementById("side-menu");
+
+        function openmenu(){
+            sidemenu.style.right="0"
+        }
+        function closemenu(){
+            sidemenu.style.right="-200px"
+        }
+
     </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwGlhekl1mXt-JEWcFA02vok_hY9ukX2LFTj0nWOPah6xiE6oWr4sHQvh-LzN0OGyPAdA/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML="Message sent successfully!"
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 
 </body>
 </html>
